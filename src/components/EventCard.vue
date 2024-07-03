@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 import Event from '@/types/Event'
-defineProps<{
+const props = defineProps<{
   event: Event
 }>()
 const event = ref ({
@@ -21,8 +21,8 @@ const event = ref ({
 <template>
   <div class="event-class">
     <div class="event-card">
-      <h2>{{ event.title }}</h2>
-      <span>@{{ event.time }} on {{ event.date }}</span>
+      <h2>{{ props.event.title }}</h2>
+      <span>@{{ props.event.time }} on {{ props.event.date }}</span>
     </div>
   </div>
 </template>
