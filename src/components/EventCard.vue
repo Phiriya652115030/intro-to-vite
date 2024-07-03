@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-//defineProps<(
-//  msg: string
-//)>
+
+import Event from '@/types/Event'
+defineProps<{
+  event: Event
+}>()
 const event = ref ({
     id: 5928101,
     category: 'animal welfare',
