@@ -6,7 +6,11 @@ import StudentListView from '@/views/StudentListView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    
+    {
+      path: '/',
+      name: 'event-list-view',
+      component: EventListView
+    },
     {
       path: '/about',
       name: 'about',
