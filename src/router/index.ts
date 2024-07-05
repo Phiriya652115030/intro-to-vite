@@ -17,8 +17,8 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/',
-      name: 'student-list-view',
+      path: '/Student',
+      name: 'student',
       component: StudentListView
     }
   ]

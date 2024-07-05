@@ -18,9 +18,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Student mun mun</h1>
+  <h1></h1>
   <!--new element-->
-  <div class="students">
+  <div class="Student">
     <StudentCard v-for="student in students" :key="student.id" :student="student"></StudentCard>
   </div>
 </template>

@@ -8,7 +8,7 @@ const apiClient = axios.create({
     'Content-Type': 'application/json'
   }
 })
-
+//getStudents
 export default {
   getEvents() {
     return apiClient.get('/students')
