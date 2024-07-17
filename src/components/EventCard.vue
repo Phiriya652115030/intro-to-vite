@@ -19,7 +19,7 @@ const event = ref ({
 </script>
 
 <template>
-  <RouterLink :to="{name: 'event-detail', params:{id: event?id}}">
+  <RouterLink class="event-link" :to="{name: 'event-detail', params:{id: event?id}}">
   <div class="event-class">
     <div class="event-card">
       <h2>{{ props.event?.title }}</h2>
@@ -41,5 +41,10 @@ const event = ref ({
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.event-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>
