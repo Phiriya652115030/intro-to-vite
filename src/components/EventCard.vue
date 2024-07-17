@@ -22,8 +22,8 @@ const event = ref ({
   <RouterLink to="/event/123">
   <div class="event-class">
     <div class="event-card">
-      <h2>{{ props.event.title }}</h2>
-      <span>@{{ props.event.time }} on {{ props.event.date }}</span>
+      <h2>{{ props.event?.title }}</h2>
+      <span>@{{ props.event?.time }} on {{ props.event?.date }}</span>
     </div>
   </div>
 </RouterLink>
