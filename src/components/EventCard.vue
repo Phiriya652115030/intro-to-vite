@@ -19,7 +19,7 @@ const event = ref ({
 </script>
 
 <template>
-  <RouterLink :to="{name: 'event-detail'}">
+  <RouterLink :to="{name: 'event-detail', params:{id: event?id}}">
   <div class="event-class">
     <div class="event-card">
       <h2>{{ props.event?.title }}</h2>
