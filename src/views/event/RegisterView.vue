@@ -4,6 +4,7 @@ import { type Event } from '@/types'
 
 const props = defineProps<{
     event: Event
+    id: String
 }>()
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { event } = toRefs(props)
