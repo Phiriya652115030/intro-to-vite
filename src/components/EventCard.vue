@@ -19,12 +19,14 @@ const event = ref ({
 </script>
 
 <template>
+  <RouterLink to="/event/5928101">
   <div class="event-class">
     <div class="event-card">
       <h2>{{ props.event.title }}</h2>
       <span>@{{ props.event.time }} on {{ props.event.date }}</span>
     </div>
   </div>
+</RouterLink>
 </template>
 
 <style scoped>
