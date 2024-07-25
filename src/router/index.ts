@@ -25,6 +25,24 @@ const router = createRouter({
       name: 'event-layout-view',
       component: EventLayoutView,
       props: true,
+      path: '/event/:id',
+        name: 'event-layout-view',
+        component: EventLayoutView,
+        props: true,
+        beforeEnter: (to) => {
+          const id = parseInt(to.params.id as string)
+          return EventService.getEventById(id)
+          .then((response) => {
+
+          }).catch((error) => {
+            if (error.response && error.response.status === 404) {
+              return {
+                name: '404-resource-view',
+                params: { resourse: 'event'}
+              }
+            }
+          })
+        },
       children: [
         {
           path: '',
