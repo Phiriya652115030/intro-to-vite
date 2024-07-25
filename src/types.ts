@@ -1,3 +1,4 @@
+import { Event } from '@/type';
 export interface Event {
     id: number
     category: string
@@ -20,4 +21,8 @@ export interface Event {
   }
   export interface MessageState {
     message: string
+  }
+
+  export interface EventState {
+    Event: Event | null
   }
