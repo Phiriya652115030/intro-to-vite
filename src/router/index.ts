@@ -87,7 +87,10 @@ const router = createRouter({
       name: 'student',
       component: StudentListView
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
 
 router.beforeEach(() => {
