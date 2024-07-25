@@ -1,11 +1,11 @@
 <script setup lang="ts">
   import EventCard from '@/components/EventCard.vue';
   import EventDetails from '@/components/EventDetails.vue'
-  import Event from '@/types/Event'
+  import { type Event } from '@/types'
   import { ref, onMounted, computed } from 'vue'
   import EventService from '@/services/EventService'
 
-  const events = ref<Event[]>(null)
+  const events = ref<Event[] | null>(null)
   const props = defineProps({
     page: {
       type: Number,
