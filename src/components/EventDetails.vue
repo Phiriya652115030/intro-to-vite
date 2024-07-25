@@ -8,10 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="event-details">
-    <p>{{ props.event.category }}</p>
-    <p>{{ props.event.organizer }}</p>
-  </div>
+  
 </template>
 
 <style scoped>
