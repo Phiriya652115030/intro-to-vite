@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 import Event from '@/types/Event'
 const props = defineProps<{
   event: Event
@@ -19,7 +17,7 @@ const event = ref ({
 </script>
 
 <template>
-  <RouterLink to="/event/5928101">
+  <RouterLink to="{ name: 'event-detail-view', params: { id: event.id } }">
   <div class="event-class">
     <div class="event-card">
       <h2>{{ props.event.title }}</h2>
