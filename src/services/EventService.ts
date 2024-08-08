@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-    baseURL: 'https://localhost:3000/events/123',
+    baseURL: 'https://my-json-server.typicode.com/phiriya652115030/mock-server/',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -10,10 +10,10 @@ const apiClient = axios.create({
 })
 
 export default {
-    getEvents(): Promise<AxiosResponse<EventItem[]>> {
-        return apiClient.get<EventItem[]>('/events')
+    getEvents(perPage: Number, page: Number) {
+        return apiClient.get('/events?_limit=' + perPage + '&_page=' + page)
     },
-    getEventById(id: number): Promise<axiosResponse<EventItem>> {
-        return apiClient.get<EventItem>('events/' + id.toString())
+    getEvent(id: number) {
+      return apiClient.get('/events/' + id)
     }
 }
