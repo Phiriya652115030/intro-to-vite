@@ -38,7 +38,7 @@
 <template>
   <h1>Events For Good</h1>
     <!-- new element-->
-  <div class="events">
+  <div class="flex flex-col items-center">
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
     <EventDetails v-for="event in events" :key="'details-' + event.id" :event="event" ></EventDetails>
   <div class="pagination">
@@ -62,11 +62,6 @@
 </template>
 
 <style scoped>
-  .events {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .pagination {
     display: flex;
     width: 290px;
