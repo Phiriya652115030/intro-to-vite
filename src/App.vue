@@ -4,6 +4,7 @@ import { useMessageStore } from './stores/message'
 import { storeToRefs } from 'pinia'
 const store = useMessageStore()
 const { message } = storeToRefs(store)
+import { inject } from '@vercel/analytics'
 </script>
 
 <template>
