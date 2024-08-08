@@ -20,7 +20,7 @@ const props = defineProps<{
 <template>
   <RouterLink class="event-link" :to="{ name: 'event-detail-view', params: { id: event.id } }">
   <div class="event-class">
-    <div class="event-card">
+    <div class="event-card hover:scale-101 hover:shadow-sp">
       <h2>{{ props.event.title }}</h2>
       <span>@{{ props.event.time }} on {{ props.event.date }}</span>
     </div>
