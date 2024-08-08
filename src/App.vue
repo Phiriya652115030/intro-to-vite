@@ -41,15 +41,5 @@ h2 {
   font-size: 20px;
 }
 /* lab 4. 1.5 */
-@keyframes yellofade {
-  from {
-    background-color: yellow;
-  }
-  to {
-    background-color: transparent;
-  }
-}
-#flashMessage {
-  animation: yellofade 3s ease-in-out;
-}
+
 </style>
