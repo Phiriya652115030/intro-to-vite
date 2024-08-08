@@ -1,4 +1,3 @@
-import { Event } from '@/type';
 export interface Event {
     id: number
     category: string
@@ -24,5 +23,5 @@ export interface Event {
   }
 
   export interface EventState {
-    Event: Event | null
+    event: Event | null
   }
