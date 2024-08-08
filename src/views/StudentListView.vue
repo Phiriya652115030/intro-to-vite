@@ -4,8 +4,7 @@ import Student from '@/types/Student'
 import { ref, onMounted } from 'vue'
 import StudentService from '@/services/StudentService'
 
-const students = ref<Student[]>(null)
-
+const students = ref<Student[] | null>(null)
 onMounted(() => {
   StudentService.getEvents()
     .then((response) => {
