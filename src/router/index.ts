@@ -2,12 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '@/views/EventListView.vue'
 import AboutView from '@/views/AboutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import OrganizerView from '@/views/OrganizerView.vue'
+
 
 import EventDetailView from '@/views/event/DetailView.vue'
 import EventRegisterView from '@/views/event/RegisterView.vue'
 import EventEditView from '@/views/event/EditView.vue'
 import EventLayoutView from '@/views/event/LayoutView.vue'
 import AddEventView from '@/views/event/EventFormView.vue'
+import AddOrganizerView from '@/views/event/OrganizerFormView.vue'
 
 import StudentListView from '@/views/StudentListView.vue'
 import nProgress from 'nprogress'
@@ -76,6 +79,17 @@ const router = createRouter({
       path: '/add-event',
       name: 'add-event',
       component: AddEventView
+    },
+    {
+      path: '/organizer',
+      name: 'organizer',
+      component: OrganizerView,
+      props: (route) => ({ page: parseInt(route.query.page?.toString() || '1') })
+    },
+    {
+      path: '/add-organier',
+      name: 'add-organier',
+      component: AddOrganizerView
     },
     {
       path: '/404/:resource',
