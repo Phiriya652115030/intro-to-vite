@@ -24,6 +24,8 @@ const props = defineProps<{
     class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp"
     >
       <h2>{{ props.event.title }}</h2>
+      <span>by</span>
+      <h5>{{ event.organizer.name }}</h5>
       <span>{{ event.category }} @ {{ event.location }}</span>
     </div>
   </div>
