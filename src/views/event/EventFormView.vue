@@ -6,6 +6,7 @@ import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
 import OrganizerService from '@/services/OrganizerService';
+import BaseSelect from '@/components/BaseSelect.vue'
 
 const event = ref<Event>({
   id: 0,
