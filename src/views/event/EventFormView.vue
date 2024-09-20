@@ -73,16 +73,7 @@ onMounted(() => {
   
         <h3>Who is your organizer?</h3>
         <label>Select an Organizer</label>
-        <select v-model="event.organizer.id">
-          <option
-          v-for="option in organizers"
-          :value="option.id"
-          :key="option.id"
-          :selected="option.id === event.organizer.id"
-          >
-            {{ option.name }}
-          </option>
-        </select>
+        <BaseSelect v-model="event.organizer.id" :options="organizers" label="Organizer" />
         <button class="button" type="submit">Submit</button>
       </form>
       <pre>{{ event }}</pre>
