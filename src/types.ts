@@ -9,10 +9,16 @@ export interface Event {
     time: string
     petsAllowed: boolean
     organizer: Organizer
+    participant: Participant
   }
   export interface Organizer {
     id: number
     name: string
+  }
+  export interface Participant {
+    id: number
+    name: string
+    telNo: string
   }
   export interface Student {
     id: number
@@ -33,4 +39,8 @@ export interface Event {
 
   export interface OrganizerState {
     organizer: Organizer | null
+  }
+
+  export interface ParticipantState {
+    participant: Participant | null
   }

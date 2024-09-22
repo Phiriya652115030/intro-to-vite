@@ -20,6 +20,11 @@ const event = ref<Event>({
   organizer: {
     id: 0,
     name: ''
+  },
+  participant: {
+    id: 0,
+    name: '',
+    telNo: ''
   }
 });
 

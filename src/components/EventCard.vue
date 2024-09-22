@@ -27,6 +27,8 @@ const props = defineProps<{
       <span>by</span>
       <h5>{{ event.organizer.name }}</h5>
       <span>{{ event.category }} @ {{ event.location }}</span>
+      <p>attended</p>
+      <h5>{{ event.participant }}</h5>
     </div>
   </div>
 </RouterLink>
