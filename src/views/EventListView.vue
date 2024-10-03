@@ -4,6 +4,7 @@
   import type { Event } from '@/types'
   import { ref, onMounted, computed, watchEffect } from 'vue'
   import EventService from '@/services/EventService'
+  import BaseInput from '@/components/BaseInput.vue'
 
   const events = ref<Event[] | null>(null)
   const totalEvents = ref(0)

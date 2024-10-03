@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { emit } from 'process';
+
 import { defineModel } from 'vue';
   
 interface BaseInputProps {
@@ -11,6 +11,8 @@ const props = withDefaults(defineProps<BaseInputProps>(), {
 });
   
 const modelValue = defineModel();
+
+const emit = defineEmits(['update:modelValue']);
 
 function updateValue(event: Event) {
   emit('update:modelValue', (event.target as HTMLInputElement)?.value)
