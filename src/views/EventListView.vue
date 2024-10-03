@@ -33,6 +33,24 @@
 })
 
 const keyword = ref('')
+
+function updateKeyword(value) {
+  let queryFunction;
+  if (keyword.value === '') {
+    queryFunction = EventService.getEvents(3, page.value);
+  } else {
+    queryFunction = EventService.getEventsByKeyword(keyword.value, 3, page.value);
+  }
+
+  queryFunction
+    .then((response) => {
+      events.value = response.data;
+      totalEvents.value = response.headers['x-total-count'];
+    })
+    .catch(() => {
+      router.push({ name: 'NetworkError' });
+    });
+}
 </script>
 
 <template>
@@ -42,8 +60,9 @@ const keyword = ref('')
     <div class="w-64">
       <BaseInput
       v-model="keyword"
+      type="text"
       label="Search..."
-      class="w-full"/>
+      @input="updateKeyword"/>
     </div>
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
     <EventDetails v-for="event in events" :key="'details-' + event.id" :event="event" ></EventDetails>
