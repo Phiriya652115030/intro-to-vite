@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { emit } from 'process';
 import { defineModel } from 'vue';
   
 interface BaseInputProps {
@@ -10,11 +11,17 @@ const props = withDefaults(defineProps<BaseInputProps>(), {
 });
   
 const modelValue = defineModel();
+
+function updateValue(event: Event) {
+  emit('update:modelValue', (event.target as HTMLInputElement)?.value)
+}
 </script>
 
 <template>
     <label v-if="label">
       {{ props.label }}
     </label>
-    <input class="mb-6" v-bind="$attrs" v-model="modelValue" placeholder="label" />
+    <input class="mb-6" v-model="modelValue" placeholder="label" 
+    @input="updateValue($event)"
+    v-bind="$attrs"/>
   </template>
