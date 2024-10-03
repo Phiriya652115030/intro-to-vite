@@ -1,4 +1,6 @@
 
+
+
 export interface Event {
     id: number
     category: string
@@ -43,4 +45,15 @@ export interface Event {
 
   export interface ParticipantState {
     participant: Participant | null
+  }
+
+  export interface AuctionItem {
+    id: number
+    name: string
+    description: string
+    successfulBid: boolean
+  }
+
+  export interface AuctionItemState {
+    auctionItem: AuctionItem | null
   }
