@@ -19,6 +19,6 @@ export default {
     },
     searchAuctionItemsByDescription(keyword: string, perPage: number, page: number):
         Promise<AxiosResponse<AuctionItem[]>> {
-            return apiClient.get<AuctionItem[]>('/auctions?name=' + keyword + '&_limit=' + perPage + '&_page=' + page)
+            return apiClient.get<AuctionItem[]>('/auctions?description=' + keyword + '&_limit=' + perPage + '&_page=' + page)
         }
 }
