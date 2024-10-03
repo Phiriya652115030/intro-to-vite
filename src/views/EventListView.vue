@@ -32,13 +32,19 @@
   })
 })
 
-
+const keyword = ref('')
 </script>
 
 <template>
   <h1>Events For Good</h1>
     <!-- new element-->
   <div class="flex flex-col items-center">
+    <div class="w-64">
+      <BaseInput
+      v-model="keyword"
+      label="Search..."
+      class="w-full"/>
+    </div>
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
     <EventDetails v-for="event in events" :key="'details-' + event.id" :event="event" ></EventDetails>
   <div class="flex w-[290px]">
