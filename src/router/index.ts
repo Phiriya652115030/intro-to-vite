@@ -94,10 +94,11 @@ const router = createRouter({
       component: AddOrganizerView
     },
     {
-      path: '/auction-item',
-      name: 'auction-item',
-      component: AuctionItemListView
-    },
+  path: '/auction-item',
+  name: 'auction-item',
+  component: AuctionItemListView,
+  props: (route) => ({ page: parseInt(route.query.page?.toString() || '1') })
+},
     {
       path: '/404/:resource',
       name: '404-resource-view',

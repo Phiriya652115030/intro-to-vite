@@ -4,7 +4,10 @@ import BaseInput from '@/components/BaseInput.vue';
 import { ref, onMounted, computed, watchEffect } from 'vue';
 import AuctionItemService from '@/services/AuctionItemService';
 import type { AuctionItem } from '@/types'
+import { useRouter } from 'vue-router';
 
+
+const router = useRouter();
 const auctionItems = ref<AuctionItem[] | null>(null)
 const totalItems = ref(0);
 const hasNextPage = computed(() => {
@@ -21,7 +24,7 @@ const props = defineProps({
 const page = computed(() => props.page)
 onMounted(() => {
   watchEffect(() => {
-    updateKeyword();
+    updateKeyword('');
   });
 });
 
@@ -29,9 +32,16 @@ function updateKeyword(value: string) {
   let queryFunction;
 
   if (value === '') {
-    queryFunction = AuctionItemService.getAuctionItems(3, page.value); // Fetch all items if keyword is empty
+    
+    if (page.value !== undefined) {
+      queryFunction = AuctionItemService.getAuctionItems(3, page.value);
+    } else {
+      console.error('Page value is undefined');
+      return; // Exit if the page value is not defined
+    }
   } else {
-    queryFunction = AuctionItemService.searchAuctionItemsByDescription(value, 3, page.value); // Fetch filtered items
+    // Use the provided value correctly
+    queryFunction = AuctionItemService.searchAuctionItemsByDescription(value, 3, page.value);
   }
 
   queryFunction
@@ -41,9 +51,10 @@ function updateKeyword(value: string) {
     })
     .catch(() => {
       // Handle network error, for example, redirecting to an error page
-      router.push({ name: 'NetworkError' });
+      router.push({ name: 'NetworkError' }); // Ensure this route exists
     });
 }
+
 </script>
 
 <template>
@@ -52,11 +63,11 @@ function updateKeyword(value: string) {
       <div class="flex flex-col items-center">
         <div class="w-64">
           <BaseInput
-            v-model="keyword"
-            type="text"
-            label="Search by description..."
-            @input="updateKeyword"
-          />
+  v-model="keyword"
+  type="text"
+  label="Search by description..."
+  @input="updateKeyword(keyword)"
+/>
         </div>
 
 <AuctionItemCard v-for="auctionItem in auctionItems" :key="auctionItem.id" :auction-item="auctionItem"></AuctionItemCard>
@@ -64,7 +75,7 @@ function updateKeyword(value: string) {
         <div class="flex w-[290px]">
             <RouterLink
     id="page-prev"
-    :to="{ name: 'event-list-view', query: { page: page - 1 } }"
+    :to="{ name: 'auction-item', query: { page: page - 1 } }"
     rel="prev"
     v-if="page != 1"
     class="flex-1 no-underline text-[#2c3e50] text-left"
@@ -73,7 +84,7 @@ function updateKeyword(value: string) {
 
     <RouterLink 
     id="page-next"
-    :to="{ name: 'event-list-view',query: { page: page + 1 } }"
+    :to="{ name: 'auction-item',query: { page: page + 1 } }"
     rel="next"
     v-if="hasNextPage"
     class="flex-1 no-underline text-[#2c3e50] text-right"
